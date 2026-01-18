@@ -1,0 +1,544 @@
+/* 기본 초기화 및 폰트 설정 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Pretendard', sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    /* DNN1 그라데이션 배경 */
+    background: linear-gradient(180deg, #060606 0%, #200194 63.94%, #261AC9 81.97%, #146CD1 100%);
+    color: white;
+    overflow: hidden;
+}
+
+/* --- 네비게이션 바 스타일 --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    background: rgba(255, 255, 255, 0.01);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1920px;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 150%; 
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 80px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    opacity: 1;
+}
+
+/* 드롭다운을 포함한 li는 기준점(relative)이 되어야 함 */
+.nav-links li {
+    position: relative;
+}
+
+/* Convert 텍스트와 아이콘 정렬 */
+.dropdown-trigger {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dropdown-icon {
+    width: 12px; /* 디자인에 맞춰 크기 조정 */
+    transition: transform 0.3s ease;
+}
+
+/* 드롭다운 목록 기본 스타일 */
+.dropdown-content {
+    position: absolute;
+    top: 150%; /* 부모 메뉴 바로 아래 */
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px); /* 본문 박스와 통일감 */
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    list-style: none;
+    padding: 10px 0;
+    min-width: 150px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+/* 마우스를 올렸을 때(Hover) 동작 */
+.nav-links li:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.nav-links li:hover .dropdown-icon {
+    transform: rotate(180deg); /* 화살표 회전 */
+}
+
+/* 드롭다운 내부 링크 스타일 */
+.dropdown-content li a {
+    padding: 10px 20px;
+    display: block;
+    font-size: 20px;
+    opacity: 0.8;
+}
+
+.dropdown-content li a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    opacity: 1;
+}
+
+.login-btn {
+    padding: 10px 30px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+
+    display: inline-flex;
+    height: 41px;
+    padding: 10px 49px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    color: #FFF;
+    font-family: Pretendard;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 30px */
+}
+
+.login-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* --- 메인 레이아웃 및 텍스트 --- */
+.main-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-left: 145px; /* 피그마 가이드라인 선 */
+    position: relative;
+}
+
+.main-title {
+    font-size: 80px; /* 요청 수치 */
+    font-weight: 400;
+    line-height: 120%; /* 120px */
+    margin-bottom: 10px;
+}
+
+.sub-desc {
+    font-size: 30px;
+    opacity: 0.6;
+    margin-bottom: 50px;
+    font-weight: 300;
+    line-height: 120%;
+}
+
+/* 버튼 및 로그인 경고 문구 영역 */
+.action-area {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.get-started-btn {
+    display: inline-flex;
+    padding: 21px 51px; /* 요청 패딩 */
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px; /* 요청 수치 */
+    background: #FFF;
+    border: none;
+    color: #200194;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 60px */
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.get-started-btn:hover {
+    transform: scale(1.05);
+}
+
+.get-started-btn:active {
+    transform: scale(0.98);
+}
+
+.login-warning {
+    color: #84FFD3; /* 요청 색상 */
+    font-size: 20px; 
+    font-weight: 300;
+    line-height: 150%; /* 30px */
+    
+    padding-left: 45px;
+}
+
+/* --- 우측 장식 박스 (유리 효과) --- 
+.hero-visual {
+    position: absolute;
+    right: 5%;
+    width: 50%;
+    height: 80%;
+}
+*/
+/* 우측 장식 박스 (유리 효과) 위치 조정 */
+.hero-visual {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 900px; /* 박스들이 배치될 전체 영역 너비 */
+    height: 800px;
+    pointer-events: none; /* 클릭 방해 금지 */
+}
+
+.glass-box {
+    position: absolute;
+    border-radius: 30px; /* 요청 수치 */
+    filter: blur(10px);
+    background: rgba(255, 255, 255, 0.20); /* 요청 수치 */
+    backdrop-filter: blur(15px); /* 배경을 흐리게 하는 속성 */
+    -webkit-backdrop-filter: blur(15px);
+}
+
+/* 피그마 레이아웃 기반 임의 배치 */
+.box-1 { width: 311px; height: 294px; top: 68px; right: 265px; z-index: 1; }
+.box-2 { width: 457px; height: 411px; top: 396px; right: 119px; z-index: 3; }
+.box-3 { width: 395px; height: 121px; top: 182px; right: 594px; z-index: 2; }
+.box-4 { width: 457px; height: 361px; top: 319px; right: 597px; opacity: 0.5; }
+.box-5 { width: 257px; height: 182px; top: 696px; right: 594px; opacity: 0.5; }
+
+/*로그인 팝업*/
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Pretendard', sans-serif;
+}
+
+/* 팝업 뒷배경 어둡고 흐리게 */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 2000;
+}
+
+/* 로그인 팝업창 디자인 */
+.login-modal {
+    position: relative;
+    width: 583px;
+    height: 770px;
+    background: #1A1A1A; /* 매우 어두운 회색 */
+    border-radius: 30px;
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: -2px -2px 15px 0 rgba(255, 255, 255, 0.25) inset, 2px 2px 20px 0 rgba(255, 255, 255, 0.25) inset;
+    color: white;
+    text-align: center;
+    transition: height 0.3s ease;
+}
+
+/* 닫기(X) 버튼 */
+.close-btn {
+    position: absolute;
+    top: 28px;
+    right: 32px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.login-header {
+    margin-bottom: 80px;
+}
+
+.login-logo-icon {
+    margin-bottom: 2px;
+    margin-top: 40px;
+}
+
+.login-header h2 {
+    font-size: 20px;
+    font-weight: 400;
+    opacity: 0.7;
+    margin-bottom: 5px;
+}
+
+.login-header h1 {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+/* 입력 필드 스타일 */
+.login-form {
+    text-align: left;
+}
+
+.input-group {
+    margin-bottom: 25px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+.input-group input {
+    width: 100%;
+    height: 55px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 0 25px;
+    color: white;
+    font-size: 18px;
+    outline: none;
+}
+
+.password-wrapper {
+    position: relative;
+}
+
+.eye-btn {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: white;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.forgot-link {
+    display: block;
+    text-align: right;
+    color: white;
+    font-size: 14px;
+    text-decoration: none;
+    opacity: 0.6;
+    margin-bottom: 30px;
+}
+
+.signup-text {
+    text-align: center;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+.signup-text a {
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+/* --- 추가 및 수정된 스타일 --- */
+
+/* 회원가입 시 높이가 길어지므로 처리 */
+.login-modal {
+    max-height: 90vh; /* 화면을 넘지 않도록 */
+    overflow-y: auto; /* 내용이 길면 스크롤 생성*/
+    transition: height 0.3s ease;
+}
+
+/* 스크롤바 커스텀 (디자인 유지) */
+.login-modal::-webkit-scrollbar { width: 5px; }
+.login-modal::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
+
+/* 회원가입용 Select 박스 화살표 색상 대응 */
+.select-type option {
+    background: #1A1A1A;
+    color: white;
+}
+
+/* 회원가입 버튼 스타일 */
+.submit-btn {
+    width: 100%;
+    height: 60px;
+    border-radius: 30px;
+    border: none;
+    background: #333333; /* 기본 비활성화 색상 */
+    color: #888888;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 20px;
+    cursor: not-allowed;
+    transition: all 0.3s ease;
+}
+
+/* 필수 입력이 다 채워졌을 때 활성화되는 클래스 */
+.submit-btn.active {
+    border-radius: 100px;
+    border: 0.3px solid #777;
+    background: rgba(132, 255, 211, 0.40);
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.submit-btn.active:hover {
+    transform: translateY(-2px);
+    background: rgba(132, 255, 211, 0.20);
+}
+
+/* 별표(*) 강조 색상 */
+.input-group label span {
+    margin-left: 3px;
+    font-weight: bold;
+}
+
+
+/* 비밀번호 찾기 전용 버튼 스타일 */
+.verify-btn {
+    width: 100%;
+    height: 60px;
+    border: 0.3px solid #777;
+    background: rgba(132, 255, 211, 0.40);
+    color: white;
+    border-radius: 30px;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.back-btn {
+    width: 100%;
+    height: 60px;
+    border: 0.3px solid #777;
+    background: rgba(133, 190, 255, 0.40);
+    color: white;
+    border-radius: 30px;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.verify-btn:hover, .back-btn:hover {
+    filter: brightness(1.2);
+}
+
+.back-to-login-btn {
+    width: 100%;
+    height: 60px;
+    background: transparent;
+    color: white;
+    border: 0.3px solid #777;
+    border-radius: 30px;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+}
+
+.back-to-login-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* pro님으로 계속하기 버튼 스타일 */
+.continue-btn {
+    width: 100%;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 15px; /* Sign Up 텍스트와의 간격 */
+    transition: all 0.3s ease;
+}
+
+.continue-btn:hover {
+    background: rgba(132, 255, 211, 0.40);
+    color: #fff;
+}
+
+/* 로그인 후의 사용자 정보 버튼 스타일 */
+.user-info-btn {
+    background: rgba(91, 134, 144, 0.63);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.4); /* 테두리 선 */
+    padding: 10px 25px;
+    border-radius: 25px; /* 알약 모양의 둥근 테두리 */
+    font-size: 20px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 50px;
+}
+
+.user-info-btn:hover {
+    background: rgba(91, 134, 144, 0.4);
+    border-color: rgba(255, 255, 255, 0.6);
+}

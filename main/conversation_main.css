@@ -1,0 +1,143 @@
+/* 1. 바디 설정: 스크롤이 자연스럽게 발생하도록 설정 */
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(180deg, #060606 0%, #200194 63.94%, #261AC9 81.97%, #146CD1 100%);
+    min-height: 100vh;
+    color: white;
+    font-family: 'Pretendard', sans-serif;
+    /* 스크롤바가 생겨도 레이아웃이 옆으로 밀리지 않도록 설정 */
+    overflow-x: hidden; 
+    overflow-y: auto;
+}
+
+/* 2. 컨테이너 설정: 기존 요소들이 틀어지지 않게 유지하며 높이만 유동적으로 변경 */
+.conv-container {
+    width: 100%;
+    /* 고정 높이(100vh) 대신 최소 높이를 사용하여 푸터가 밀려나지 않게 함 */
+    min-height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    /* 배경은 바디와 통일하되, 컨테이너 자체 배경은 투명하게 하여 겹치지 않게 함 */
+    background: transparent; 
+}
+
+/* --- 여기서부터는 보내주신 기존 스타일 그대로 유지 --- */
+
+/* 중앙 영웅 섹션 */
+.conv-hero {
+    text-align: center;
+    z-index: 10;
+}
+
+.conv-title {
+    font-size: 80px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.conv-desc {
+    font-size: 24px;
+    line-height: 1.6;
+    opacity: 0.9;
+    margin-bottom: 50px;
+}
+
+/* 시작 버튼 스타일 */
+.start-btn {
+    width: 300px;
+    height: 70px;
+    background: transparent;
+    border: 2px solid #FFF;
+    border-radius: 50px;
+    color: white;
+    font-size: 32px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.start-btn:hover {
+    background: rgba(132, 255, 211, 0.40);
+    transform: scale(1.05);
+}
+
+.start-warning {
+    margin-top: 15px;
+    color: #84FFD3;
+    font-size: 20px;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+/* 배경에 깔리는 흐릿한 대화 상자들 */
+.bg-chat-box {
+    position: absolute;
+    padding: 15px 30px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    pointer-events: none;
+}
+
+.bg-chat-box .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+.dot.red { background: rgba(255, 95, 95, 0.4); }
+.dot.green { background: rgba(0, 255, 171, 0.4); }
+
+/* 시안에 따른 박스별 랜덤 위치 (유리박스들처럼 배치) */
+.chat-1 { top: 20%; left: 10%; filter: blur(4px); }
+.chat-2 { top: 15%; right: 15%; filter: blur(2px); }
+.chat-3 { bottom: 30%; left: 15%; filter: blur(3px); }
+.chat-4 { bottom: 25%; right: 10%; filter: blur(5px); }
+.chat-5 { bottom: 10%; left: 40%; filter: blur(6px); }
+.chat-6 { top: 40%; right: 5%; filter: blur(8px); }
+
+/* 푸터 스타일 */
+.conv-footer {
+    background: #060606;
+    padding: 80px 145px;
+    color: white;
+    position: relative;
+    z-index: 20;
+    font-family: 'Pretendard', sans-serif;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.footer-logo { font-size: 28px; font-weight: bold; }
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 16px;
+    opacity: 0.7;
+}
+
+.footer-line { border: 0; border-top: 1px solid rgba(255, 255, 255, 0.1); margin-bottom: 30px; }
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.footer-bottom p { opacity: 0.5; font-size: 14px; line-height: 1.6; }
+
+.footer-sns span { margin-left: 20px; opacity: 0.7; cursor: pointer; }

@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Pretendard', sans-serif;
+}
+
+/* 팝업 뒷배경 어둡고 흐리게 */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+/* 로그인 팝업창 디자인 */
+.login-modal {
+    position: relative;
+    width: 460px;
+    background: #1A1A1A; /* 매우 어두운 회색 */
+    border-radius: 30px;
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+}
+
+/* 닫기(X) 버튼 */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.login-header {
+    margin-bottom: 30px;
+}
+
+.login-logo-icon {
+    margin-bottom: 15px;
+}
+
+.login-header h2 {
+    font-size: 16px;
+    font-weight: 400;
+    opacity: 0.7;
+    margin-bottom: 8px;
+}
+
+.login-header h1 {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+/* 입력 필드 스타일 */
+.login-form {
+    text-align: left;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 8px;
+    opacity: 0.8;
+}
+
+.input-group input {
+    width: 100%;
+    height: 55px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 0 20px;
+    color: white;
+    font-size: 16px;
+    outline: none;
+}
+
+.password-wrapper {
+    position: relative;
+}
+
+.eye-btn {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: white;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.forgot-link {
+    display: block;
+    text-align: right;
+    color: white;
+    font-size: 14px;
+    text-decoration: none;
+    opacity: 0.6;
+    margin-bottom: 30px;
+}
+
+.signup-text {
+    text-align: center;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+.signup-text a {
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    margin-left: 5px;
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNNWebService - Dashboard</title>
+    <link rel="stylesheet" href="mainLandingPg.css">
+    <link rel="stylesheet" href="mainLandingPg_LoginComp.css">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+</head>
+<body class="logged-in-body">
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo"><a href="mainLandingPg.html">DNNWebService</a></div>
+            <nav>
+                <ul class="nav-links">
+                    <li>
+                        <a href="convert_T2A.html" class="dropdown-trigger"> Convert 
+                            <svg class="dropdown-icon" width="17" height="12" viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 1L8.5 10L16 1" stroke="white" stroke-width="2"/>
+                            </svg>
+                        </a>
+                        <ul class="dropdown-content">
+                            <li><a href="convert_T2A.html">Text2AAC</a></li>
+                            <li><a href="convert_A2T.html">AAC2Text</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="conversation_main.html">Conversation</a></li>
+                    <li><a href="aboutUs.html">About Us</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <button class="user-info-btn">pro 님</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="dashboard-wrapper">
+        <section class="dashboard-left">
+            <h1 class="main-title">DNNWebService<br>@HongLab</h1>
+            <p class="sub-desc">DNNWebService<br>@HongLab</p>
+            <button class="get-started-btn">Get Started</button>
+        </section>
+
+        <section class="dashboard-right">
+            
+            <div class="glass-card recent-history">
+                <h3 class="card-label">최근 변환 내역</h3>
+                <div class="history-content">
+                    <div class="history-item">
+                        <p class="item-title">Text → AAC</p>
+                        <p class="item-desc">배고파요 즐거워요 배고파요 목말라요 즐거워요 목말라요</p>
+                    </div>
+                    <div class="history-item">
+                        <p class="item-title">AAC → Text</p>
+                        <p class="item-desc">배고파요</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card convert-shortcut">
+                <h2>Text → AAC</h2>
+                <p>변환하러가기</p>
+            </div>
+
+            <div class="glass-card profile-card">
+                <span class="online-dot"></span>
+                <div class="profile-avatar">
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <h2>pro 님</h2>
+                <p class="user-role">일반 사용자</p>
+            </div>
+
+            <div class="glass-card message-alert">
+                <h3>pro 님,<br>읽지 않은 메시지가 있습니다.</h3>
+                <div class="message-boxes">
+                    <div class="msg-box">
+                        <span class="dot red"></span>
+                        <span class="msg-text">AAC 사용자 | 붕빵 님</span>
+                        <span class="msg-badge">2</span>
+                    </div>
+                    <div class="msg-box">
+                        <span class="dot green"></span>
+                        <span class="msg-text">AAC 사용자 | Ammmmiee 님</span>
+                        <span class="msg-badge">1</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card contact-card">
+                <h2>CONTACT<br>HONG LAB</h2>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

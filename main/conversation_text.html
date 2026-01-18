@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNNWebService - Conversation</title>
+    <link rel="stylesheet" href="mainLandingPg.css"> <link rel="stylesheet" href="conversation_text.css">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo"><a href="mainLandingPg.html">DNNWebService</a></div>
+            <nav>
+                <ul class="nav-links">
+                    <li>
+                        <a href="convert_T2A.html" class="dropdown-trigger"> Convert 
+                            <svg class="dropdown-icon" width="17" height="12" viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 1L8.5 10L16 1" stroke="white" stroke-width="2"/>
+                            </svg>
+                        </a>
+                        <ul class="dropdown-content">
+                            <li><a href="convert_T2A.html">Text2AAC</a></li>
+                            <li><a href="convert_A2T.html">AAC2Text</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="conversation_main.html" style="opacity: 1; font-weight: semibold;">Conversation</a></li>
+                    <li><a href="aboutUs.html">About Us</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <button class="login-btn" onclick="openLogin()">Login</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="chat-wrapper">
+        <aside class="friends-sidebar">
+            <h2 class="sidebar-title">Friends</h2>
+            <div class="friends-list">
+                <div class="friend-item active">
+                    <span class="online-status green"></span>
+                    <div class="avatar-circle">
+                        <svg viewBox="0 0 24 24" fill="#CCCCCC"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                    </div>
+                    <div class="friend-info">
+                        <span class="name">Ammmmiee 님</span>
+                        <span class="role">AAC 사용자</span>
+                    </div>
+                </div>
+
+                <div class="friend-item">
+                    <span class="online-status red"></span>
+                    <div class="friend-row">
+                        <span class="role-tag">AAC 사용자</span>
+                        <span class="divider">|</span>
+                        <span class="name">붕빵 님</span>
+                    </div>
+                </div>
+
+                <div class="friend-item">
+                    <span class="online-status green"></span>
+                    <div class="friend-row">
+                        <span class="role-tag">일반 사용자</span>
+                        <span class="divider">|</span>
+                        <span class="name">RoSE 님</span>
+                    </div>
+                </div>
+
+                <div class="friend-item">
+                    <span class="online-status green"></span>
+                    <div class="friend-row">
+                        <span class="role-tag">AAC 사용자</span>
+                        <span class="divider">|</span>
+                        <span class="name">enWhszn 님</span>
+                    </div>
+                </div>
+
+                <div class="friend-item">
+                    <span class="online-status red"></span>
+                    <div class="friend-row">
+                        <span class="role-tag">일반 사용자</span>
+                        <span class="divider">|</span>
+                        <span class="name">什么 님</span>
+                    </div>
+                </div>
+
+                <div class="friend-item">
+                    <span class="online-status green"></span>
+                    <div class="friend-row">
+                        <span class="role-tag">일반 사용자</span>
+                        <span class="divider">|</span>
+                        <span class="name">프로로 님</span>
+                    </div>
+                </div>
+
+                <div class="friend-item">
+                    <span class="online-status red"></span>
+                    <div class="friend-row">
+                        <span class="role-tag">AAC 사용자</span>
+                        <span class="divider">|</span>
+                        <span class="name">악악 님</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <section class="chat-main">
+            <div class="chat-header">
+                <div class="chat-user-profile">
+                    <div class="main-avatar">A</div>
+                    <span class="main-name">Ammmmiee</span>
+                </div>
+            </div>
+
+            <div class="chat-messages">
+                <div class="message-row me">
+                    <div class="bubble blue">난 너무 배불러</div>
+                    <div class="bubble blue">밥 먹었어?</div>
+                </div>
+
+                <div class="message-row opponent">
+                    <div class="bubble white">아니</div>
+                    <div class="bubble white">배고파</div>
+                </div>
+
+                <div class="message-row me">
+                    <div class="bubble blue">난 너무 배불러</div>
+                    <div class="bubble blue">밥 먹었어?</div>
+                </div>
+
+                <div class="message-row opponent">
+                    <div class="bubble white">아니</div>
+                    <div class="bubble white">배고파</div>
+                </div>
+                <div class="message-row me">
+                    <div class="bubble blue">난 너무 배불러</div>
+                    <div class="bubble blue">밥 먹었어?</div>
+                </div>
+            </div>
+
+            <div class="chat-input-area">
+                <button class="add-btn">+</button>
+                <div class="input-container">
+                    <input type="text" placeholder="DNNWebChat">
+                    <button class="send-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 19V5M5 12l7-7 7 7"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="conv-footer">
+        <div class="footer-top">
+            <span class="footer-logo">DNNWebService</span>
+            <div class="footer-links">
+                <a href="#">개인정보처리방침</a>
+                <a href="#">고객정보취급방침</a>
+                <a href="#">신용정보활용체제</a>
+            </div>
+        </div>
+        <hr class="footer-line">
+        <div class="footer-bottom">
+            <p>서울특별시 성북구 보문로 34다길 2, 성신여자대학교 수정관 212호 | 대표전화: 02-920-7114<br>Copyright @ HongLab. All rights reserved.</p>
+            <div class="footer-sns">
+                <span class="sns-icon"> <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.91-1.27 4.85-2.11 5.82-2.52 2.77-1.16 3.35-1.36 3.72-1.37.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+                </span>
+                <span class="sns-icon"> <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </span>
+                <span class="sns-icon"> <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.332 3.608 1.308.975.975 1.245 2.242 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.332 2.633-1.308 3.608-.975.975-2.242 1.245-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.332-3.608-1.308-.975-.975-1.245-2.242-1.308-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.332-2.633 1.308-3.608.975-.975 2.242-1.245 3.608-1.308 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-1.277.057-2.149.259-2.912.556-.789.307-1.459.717-2.127 1.385-.668.667-1.078 1.338-1.385 2.127-.297.763-.499 1.635-.556 2.912-.058 1.28-.072 1.688-.072 4.947s.014 3.667.072 4.947c.057 1.277.259 2.149.556 2.912.307.789.717 1.459 1.385 2.127.667.668 1.338 1.078 2.127 1.385.763.297 1.635.499 2.912.556 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c1.277-.057 2.149-.259 2.912-.556.789-.307 1.459-.717 2.127-1.385.668-.667 1.078-1.338 1.385-2.127.297-.763.499-1.635.556-2.912.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.057-1.277-.259-2.149-.556-2.912-.307-.789-.717-1.459-1.385-2.127-.668-.667-1.338-1.078-2.127-1.385-.763-.297-1.635-.499-2.912-.556-1.28-.058-1.688-.072-4.947-.072z"/></svg>
+                </span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

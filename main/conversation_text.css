@@ -1,0 +1,240 @@
+/* 1. 기본 배경 및 레이아웃 설정 */
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(180deg, #060606 0%, #200194 63.94%, #261AC9 81.97%, #146CD1 100%);
+    /* height 대신 min-height를 사용해 내용이 많아지면 늘어나게 합니다 */
+    min-height: 100vh;
+    color: white;
+    font-family: 'Pretendard', sans-serif;
+    display: flex;
+    flex-direction: column;
+    /* 스크롤 허용 */
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* 2. 메인 채팅 레이아웃 래퍼 */
+.chat-wrapper {
+    display: flex;
+    /* 남는 공간을 차지하여 푸터를 아래로 밀어냄 */
+    flex: 1;
+    max-width: 1400px;
+    width: 100%;
+    /* margin-bottom을 0으로 하고 padding을 주어 푸터와 간격 조절 */
+    margin: 150px auto 0; 
+    padding: 0 20px 80px; /* 하단 패딩으로 푸터와의 여백 확보 */
+    gap: 30px;
+    box-sizing: border-box;
+    /* align-items: center는 채팅창이 작을 때 공중에 뜰 수 있으므로 stretch 권장 */
+    align-items: stretch;
+}
+
+/* 3. 사이드바 (친구 목록) */
+.friends-sidebar {
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-title {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    text-align: center;
+    opacity: 0.6;
+}
+
+.friends-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    /* 친구 목록 자체 스크롤이 필요 없다면 아래 height 관련 삭제 가능 */
+    /* 페이지 전체 스크롤을 위해 여기 스크롤은 보조적으로 사용 */
+    padding-right: 8px;
+}
+
+/* 4. 개별 친구 박스 디자인 */
+.friend-item {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 35px 20px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.friend-item.active {
+    background: #006080;
+    border: 1px solid rgba(0, 255, 171, 0.3);
+    padding: 40px;
+}
+
+.online-status {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+.online-status.green { background: #00C72B; box-shadow: 0 0 8px #00FFAB; }
+.online-status.red { background: #FF5F5F; }
+
+.avatar-circle {
+    width: 75px;
+    height: 75px;
+    background: white;
+    border-radius: 50%;
+    margin: 0 20px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.friend-info .name { font-size: 20px; font-weight: 600; display: block; margin: 8px 0;}
+.friend-info .role { font-size: 18px; opacity: 0.6; }
+
+.friend-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding-left: 15px;
+}
+
+.role-tag { font-size: 18px; opacity: 0.7; width: 100px; flex-shrink: 0; }
+.divider { margin: 0 15px; opacity: 0.3; }
+.name { font-size: 20px; font-weight: 500; }
+
+/* 5. 메인 채팅창 디자인 */
+.chat-main {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(25px);
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    /* 채팅창 최소 높이 설정 (스크롤 유도) */
+    min-height: 700px;
+}
+
+.chat-header {
+    padding: 25px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.main-avatar {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(153deg, #E5EAF7 14.52%, #7C8DBE 85.23%);
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.main-name { display: block; font-size: 20px; font-weight: 500; }
+
+.chat-messages {
+    flex: 1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* 내부 메시지가 많아지면 여기서도 스크롤이 되게 하려면 아래 활성화 */
+    /* overflow-y: auto; */
+}
+
+/* 메시지 버블 스타일 */
+.message-row { display: flex; flex-direction: column; gap: 8px; }
+.message-row.me { align-items: flex-end; }
+.message-row.opponent { align-items: flex-start; }
+
+.bubble {
+    max-width: 65%;
+    padding: 12px 22px;
+    border-radius: 22px;
+    font-size: 17px;
+    line-height: 1.4;
+}
+
+.bubble.white { background: #FFFFFF; color: #000; border-bottom-left-radius: 4px; }
+.bubble.blue { background: #00A3FF; color: #FFF; border-bottom-right-radius: 4px; }
+
+/* 6. 하단 입력창 영역 */
+.chat-input-area {
+    padding: 25px 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.add-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.input-container {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 30px;
+    padding: 5px 20px;
+    display: flex;
+    align-items: center;
+}
+
+.input-container input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 12px 0;
+    font-size: 17px;
+    outline: none;
+}
+
+.send-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+}
+
+/* 7. 푸터 스타일 */
+.conv-footer {
+    background: #060606;
+    padding: 80px 145px;
+    color: white;
+    position: relative;
+    z-index: 20;
+    /* 페이지가 짧을 때도 항상 바닥에 있게 함 */
+    margin-top: auto;
+}
+
+.footer-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+.footer-logo { font-size: 28px; font-weight: bold; }
+.footer-links a { color: white; text-decoration: none; margin-left: 30px; font-size: 16px; opacity: 0.7; }
+.footer-line { border: 0; border-top: 1px solid rgba(255, 255, 255, 0.1); margin-bottom: 30px; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: flex-end; }
+.footer-bottom p { opacity: 0.5; font-size: 14px; line-height: 1.6; }
+.footer-sns span { margin-left: 20px; opacity: 0.7; cursor: pointer; }

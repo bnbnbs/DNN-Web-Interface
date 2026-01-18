@@ -1,0 +1,208 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(180deg, #060606 0%, #200194 63.94%, #261AC9 81.97%, #146CD1 100%);
+    
+    /* 중요: fixed나 100vh로 고정하지 말고 최소 높이만 줍니다 */
+    min-height: 100vh; 
+    
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-family: 'Pretendard', sans-serif;
+    
+    /* 스크롤이 절대 죽지 않도록 설정 */
+    overflow-y: visible; 
+    overflow-x: hidden;
+}
+
+.convert-container {
+    flex: 1;
+    max-width: 1200px;
+    width: 90%;
+    margin: 150px auto 100px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* 탭 스타일 */
+.convert-tabs {
+    display: flex;
+    width: 100%;
+    margin-bottom: 50px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tab {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    opacity: 0.4;
+    transition: 0.3s;
+}
+
+.tab.active {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* 섹션 공통 */
+.section-title {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+/* 입력창 박스 - 요청하신 0.20 반영 */
+.input-box textarea {
+    width: 100%;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.20); 
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 25px;
+    color: white;
+    font-size: 18px;
+    resize: none;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.input-box textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* 변환 버튼 */
+.btn-center {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.convert-action-btn {
+    width: 180px;
+    height: 55px;
+    background: #5D8086;
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.convert-action-btn:hover {
+    background: #6e969d;
+    transform: translateY(-2px);
+}
+
+/* 화살표 데코 */
+.arrow-deco {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+/* 결과 섹션 카드형 배경 */
+.result-section {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.result-group {
+    margin-bottom: 50px;
+}
+
+.result-group:last-child { margin-bottom: 0; }
+
+/* 결과창 표시 박스 - 요청하신 0.20 반영 */
+.display-box {
+    background: rgba(255, 255, 255, 0.20);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 20px 25px;
+    font-size: 18px;
+    min-height: 28px;
+}
+
+/* 상징 카드 디자인 */
+.symbol-container {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 30px;
+    min-height: 200px;
+    display: flex;
+    gap: 15px;
+}
+
+.symbol-card {
+    width: 160px;
+    background: white;
+    border-radius: 12px;
+    padding: 10px;
+    text-align: center;
+}
+
+.symbol-img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.symbol-img img {
+    max-width: 90%;
+}
+
+.symbol-text {
+    color: black;
+    font-weight: 600;
+    font-size: 16px;
+    border-top: 1px solid #eee;
+    padding-top: 8px;
+}
+
+#resultDisplay{
+    color: rgba(255, 255, 255, 0.50);
+}
+
+/* 3. 푸터 고정 해제 및 위치 강제 */
+.conv-footer {
+    background: #060606;
+    padding: 60px 145px;
+    width: 100%;
+    box-sizing: border-box;
+    
+    /* 컨테이너가 짧아도 바닥에 붙고, 길어지면 맨 아래에 위치하게 함 */
+    margin-top: auto; 
+    position: relative; 
+    z-index: 10;
+}
+/* 7. 푸터 스타일 */
+.conv-footer {
+    background: #060606;
+    padding: 80px 145px;
+    color: white;
+    position: relative;
+    z-index: 20;
+    /* 페이지가 짧을 때도 항상 바닥에 있게 함 */
+    margin-top: auto;
+}
+
+.footer-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+.footer-logo { font-size: 28px; font-weight: bold; }
+.footer-links a { color: white; text-decoration: none; margin-left: 30px; font-size: 16px; opacity: 0.7; }
+.footer-line { border: 0; border-top: 1px solid rgba(255, 255, 255, 0.1); margin-bottom: 30px; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: flex-end; }
+.footer-bottom p { opacity: 0.5; font-size: 14px; line-height: 1.6; }
+.footer-sns span { margin-left: 20px; opacity: 0.7; cursor: pointer; }

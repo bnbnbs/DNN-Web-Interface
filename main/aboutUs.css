@@ -1,0 +1,112 @@
+/* 1. 기본 바디 설정 */
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(180deg, #060606 0%, #200194 63.94%, #261AC9 81.97%, #146CD1 100%);
+    min-height: 100vh;
+    color: white;
+    font-family: 'Pretendard', sans-serif;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* 2. 메인 컨테이너 */
+.about-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* 3. 중앙 히어로 섹션 */
+.contact-hero {
+    text-align: center;
+    z-index: 10;
+}
+
+.contact-title {
+    font-size: 80px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.contact-desc {
+    font-size: 24px;
+    line-height: 1.6;
+    opacity: 0.9;
+    margin-bottom: 50px;
+}
+
+/* 4. Contact Us 버튼 스타일 (시안과 동일한 둥근 흰색 배경) */
+.contact-us-btn {
+    width: 320px;
+    height: 80px;
+    background: white;
+    border: none;
+    border-radius: 50px;
+    color: #200194; /* 배경 그라데이션과 어울리는 짙은 블루/퍼플 */
+    font-size: 32px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.contact-us-btn:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+/* 5. 푸터 스타일 (Conversation 페이지와 통일) */
+.conv-footer {
+    background: #060606;
+    padding: 80px 145px;
+    color: white;
+    position: relative;
+    z-index: 20;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.footer-logo { font-size: 28px; font-weight: bold; }
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 16px;
+    opacity: 0.7;
+}
+
+.footer-line { border: 0; border-top: 1px solid rgba(255, 255, 255, 0.1); margin-bottom: 30px; }
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.footer-bottom p { opacity: 0.5; font-size: 14px; line-height: 1.6; }
+
+.footer-sns {
+    display: flex;
+    gap: 20px;
+}
+
+.sns-icon {
+    opacity: 0.7;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.sns-icon:hover {
+    opacity: 1;
+}

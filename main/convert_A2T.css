@@ -1,0 +1,212 @@
+/* 1. 기본 배경 및 레이아웃 (배경 고정 속성 추가) */
+body {
+    margin: 0;
+    padding: 0;
+    /* fixed 속성을 추가하여 스크롤 시에도 배경 그라디언트가 유지되도록 함 */
+    background: linear-gradient(180deg, #060606 0%, #200194 63.94%, #261AC9 81.97%, #146CD1 100%) no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    color: white;
+    font-family: 'Pretendard', sans-serif;
+    display: flex;
+    flex-direction: column;
+    overflow-y: visible; 
+    overflow-x: hidden;
+}
+
+.convert-container {
+    flex: 1;
+    max-width: 1200px;
+    width: 90%;
+    margin: 150px auto 100px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* 2. 탭 스타일 */
+.convert-tabs {
+    display: flex;
+    width: 100%;
+    margin-bottom: 50px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tab {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    opacity: 0.4;
+    transition: 0.3s;
+}
+
+.tab.active {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* 3. 섹션 공통 스타일 */
+.section-title {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+/* 4. 입력창 및 표시 박스 (0.20 투명도) */
+.input-box, .display-box {
+    width: 100%;
+    min-height: 150px;
+    background: rgba(255, 255, 255, 0.20); 
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 25px;
+    box-sizing: border-box;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap; /* 이미지가 많아질 경우 줄바꿈 */
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+/* 5. 검색 영역 스타일 */
+.search-bar-container {
+    display: flex;
+    background: rgba(255, 255, 255, 0.20);
+    border-radius: 30px;
+    padding: 5px 25px;
+    margin-bottom: 40px;
+    align-items: center;
+}
+
+.search-bar-container input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 15px 0;
+    font-size: 18px;
+    outline: none;
+}
+
+.search-results {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+}
+/* 검색 버튼 스타일 수정 */
+.search-btn {
+    background: transparent !important; /* 배경을 투명하게 고정 */
+    border: none !important;            /* 테두리 제거 */
+    padding: 0;
+    margin-left: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;                      /* 클릭 시 생기는 아웃라인 제거 */
+}
+
+/* SVG 아이콘 스타일 */
+.search-btn svg {
+    background: transparent !important; /* SVG 자체 배경 투명화 */
+    display: block;
+    fill: white;                        /* 아이콘 색상을 흰색으로 */
+}
+
+/* 6. 변환 버튼 및 화살표 */
+.btn-center {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.convert-action-btn {
+    width: 180px;
+    height: 55px;
+    background: #5D8086;
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.arrow-deco {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+/* 7. 결과 섹션 */
+.result-section {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 40px;
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+}
+
+.result-group { margin-bottom: 50px; }
+.result-group:last-child { margin-bottom: 0; }
+.text-result { min-height: 60px; font-size: 20px; font-weight: 400;     color: rgba(255, 255, 255, 0.50);}
+
+/* 8. 상징 카드 및 선택된 아이템 디자인 */
+.symbol-card, .selected-item {
+    width: 160px;
+    background: white;
+    border-radius: 12px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: transform 0.2s;
+}
+
+.symbol-card:hover { transform: scale(1.02); }
+
+.symbol-card img, .selected-item img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    margin-bottom: 10px;
+}
+
+.symbol-card p, .selected-item p {
+    color: black;
+    font-weight: 600;
+    font-size: 16px;
+    border-top: 1px solid #eee;
+    padding-top: 8px;
+    margin: 0;
+}
+
+.opacity-half { opacity: 0.5; cursor: default; }
+
+/* 9. 푸터 스타일 */
+.conv-footer {
+    background: #060606;
+    padding: 80px 145px;
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: auto;
+    position: relative;
+    z-index: 20;
+}
+
+.footer-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+.footer-logo { font-size: 28px; font-weight: bold; }
+.footer-links a { color: white; text-decoration: none; margin-left: 30px; opacity: 0.7; }
+.footer-line { border: 0; border-top: 1px solid rgba(255, 255, 255, 0.1); margin-bottom: 30px; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: flex-end; }
+.footer-bottom p { opacity: 0.5; font-size: 14px; line-height: 1.6; }
+.sns-icon { margin-left: 20px; opacity: 0.7; cursor: pointer; }

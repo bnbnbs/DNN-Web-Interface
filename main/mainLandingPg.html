@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNNWebService</title>
+    <link rel="stylesheet" href="mainLandingPg.css">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo"><a href="mainLandingPg.html">DNNWebService</a></div>
+            <nav>
+                <ul class="nav-links">
+                    <li>
+                        <a href="convert_T2A.html" class="dropdown-trigger"> Convert 
+                            <svg class="dropdown-icon" width="17" height="12" viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 1L8.5 10L16 1" stroke="white" stroke-width="2"/>
+                            </svg>
+                        </a>
+                        <ul class="dropdown-content">
+                            <li><a href="convert_T2A.html">Text2AAC</a></li>
+                            <li><a href="convert_A2T.html">AAC2Text</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="conversation_main.html">Conversation</a></li>
+                    <li><a href="aboutUs.html">About Us</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <button class="login-btn" onclick="openLogin()">Login</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <section class="hero-text">
+            <h1 class="main-title">DNNWebService<br>@HongLab</h1>
+            <p class="sub-desc">DNNWebService<br>@HongLab</p>
+            
+            <div class="action-area">
+                <button class="get-started-btn" onclick="openLogin()">Get Started</button>
+                <p class="login-warning">*로그인이되어있지않습니다</p>
+            </div>
+        </section>
+
+        <section class="hero-visual">
+            <div class="glass-box box-1"></div>
+            <div class="glass-box box-2"></div>
+            <div class="glass-box box-3"></div>
+            <div class="glass-box box-4"></div>
+            <div class="glass-box box-5"></div>
+        </section>
+    </main>
+
+    <div id="loginModal" class="modal-overlay">
+    <div class="login-modal" id="modalContainer">
+        <button class="close-btn" onclick="closeLogin()">&times;</button>
+        
+        <div id="loginStep">
+            <div class="login-header">
+                <div class="login-logo-icon">
+                    <svg width="45" height="45" viewBox="0 0 30 30" fill="none" stroke="white" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M13.8 12H3"/></svg>
+                </div>
+                <h2 style="font-size: 20px; opacity: 0.6;">DNNWebService</h2>
+                <h1 style="font-size: 30px; margin-top: 0px;">Login to your account!</h1>
+            </div>
+
+            <form class="login-form" style="margin-top: 30px;">
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" placeholder="Enter your email">
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <div style="position: relative;">
+                        <input type="password" placeholder="Enter your password">
+                    </div>
+                </div>
+                <div style="text-align: right; margin-bottom: 80px;">
+                    <a href="javascript:void(0);" onclick="showForgot()" style="color: white; opacity: 0.6; font-size: 20px; text-decoration: none;">Forgot Password?</a>
+                </div>
+                <p class="signup-text" style="font-size: 20px; opacity: 0.8;">
+                    Don’t have an account? 
+                    <a href="javascript:void(0);" onclick="showSignup()" style="color: white; font-weight: bold; text-decoration: none;">Sign Up</a>
+                </p>
+                <button type="button" class="continue-btn" onclick="handleContinueAsPro()"> pro 님으로 계속하기</button>
+            </form>
+        </div>
+
+        <div id="forgotStep" style="display: none;">
+            <div class="login-header">
+                <div class="login-logo-icon" style="margin-bottom: 10px;">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </div>
+                <h2 style="font-size: 20px; opacity: 0.6;">DNNWebService</h2>
+                <h1 style="font-size: 30px; margin-top: 0px;">Forgot Password?</h1>
+            </div>
+            <form class="login-form" style="margin-top: 30px;">
+                <div class="input-group">
+                    <label>ID(Email)</label>
+                    <input type="email" placeholder="Enter your email">
+                </div>
+                <div class="input-group">
+                    <label>Username</label>
+                    <input type="text" placeholder="Enter your username">
+                </div>
+                <div style="margin-top: 50px; display: flex; flex-direction: column; gap: 15px;">
+                    <button type="button" class="verify-btn">Verify Account</button>
+                    <button type="button" class="back-btn" onclick="showLogin()">Back to Login</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="signupStep" style="display: none;">
+            <div class="login-header" style="margin-bottom: 40px;">
+                <div class="login-logo-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="17" y1="11" x2="23" y2="11"/></svg>
+                </div>
+                <h2 style="font-size: 20px; opacity: 0.6;">Create an account</h2>
+                <h1 style="font-size: 30px; margin-top: 0px;">Let’s Get Started!</h1>
+            </div>
+            <form class="login-form" id="signupForm">
+                <div class="input-group">
+                    <label>Username <span style="color:#FF4B4B">*</span></label>
+                    <input type="text" class="required" placeholder="Enter username">
+                </div>
+                <div class="input-group">
+                    <label>User Type <span style="color:#FF4B4B">*</span></label>
+                    <select class="required select-type" style="width:100%; height:55px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:12px; color:rgba(136, 136, 136, 0.80); padding:0 25px; outline:none; font-size: 18px;">
+                        <option value="" disabled selected>Select Type</option>
+                        <option value="individual">Individual</option>
+                        <option value="organization">Organization</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Email <span style="color:#FF4B4B">*</span></label>
+                    <input type="email" class="required" placeholder="Enter email">
+                </div>
+                <div class="input-group">
+                    <label>Password <span style="color:#FF4B4B">*</span></label>
+                    <input type="password" class="required" placeholder="Enter password">
+                </div>
+                <div class="input-group">
+                    <label>Organization (Optional)</label>
+                    <input type="text" placeholder="Enter organization name">
+                </div>
+                <button type="submit" id="signupSubmit" class="submit-btn" disabled>SignUp</button>
+                <button type="button" class="back-to-login-btn" onclick="showLogin()">Back to Login</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openLogin() {
+        document.getElementById('loginModal').style.display = 'flex';
+        showLogin(); // 열 때마다 로그인 화면으로 초기화
+    }
+    
+    function closeLogin() {
+        document.getElementById('loginModal').style.display = 'none';
+    }
+
+    function hideAllSteps() {
+        document.getElementById('loginStep').style.display = 'none';
+        document.getElementById('signupStep').style.display = 'none';
+        document.getElementById('forgotStep').style.display = 'none';
+    }
+
+    function showSignup() {
+        hideAllSteps();
+        document.getElementById('signupStep').style.display = 'block';
+        document.getElementById('modalContainer').style.height = 'auto';
+    }
+
+    function showLogin() {
+        hideAllSteps();
+        document.getElementById('loginStep').style.display = 'block';
+        document.getElementById('modalContainer').style.height = '750px';
+    }
+
+    function showForgot() {
+        hideAllSteps();
+        document.getElementById('forgotStep').style.display = 'block';
+        document.getElementById('modalContainer').style.height = '750px';
+    }
+
+    // 회원가입 버튼 활성화 체크
+    document.addEventListener('DOMContentLoaded', () => {
+        const signupForm = document.getElementById('signupForm');
+        const requiredInputs = document.querySelectorAll('.required');
+        const signupBtn = document.getElementById('signupSubmit');
+
+        if(signupForm) {
+            signupForm.addEventListener('input', () => {
+                let allFilled = true;
+                requiredInputs.forEach(input => {
+                    if (input.value.trim() === "") allFilled = false;
+                });
+                
+                if (allFilled) {
+                    signupBtn.disabled = false;
+                    signupBtn.classList.add('active');
+                } else {
+                    signupBtn.disabled = true;
+                    signupBtn.classList.remove('active');
+                }
+            });
+        }
+    });
+
+    window.onclick = function(event) {
+        let modal = document.getElementById('loginModal');
+        if (event.target == modal) {
+            closeLogin();
+        }
+    }
+
+    function handleContinueAsPro() {
+    // 현재 창에서 새로운 HTML 파일로 이동합니다.
+    window.location.href = "mainLandingPg_LoginComp.html";
+    }
+    
+</script>
+</body>
+</html>
